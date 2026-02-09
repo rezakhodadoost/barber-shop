@@ -6,7 +6,7 @@
   min-height: 100vh;
   padding: 160px 24px 80px;
   text-align: center;
-  color: #ffffff;
+  color: #000000;
 
   /* Main background gradients */
   background:
@@ -17,10 +17,10 @@
     ),
     linear-gradient(
       135deg,
-      #09637e 0%,
-      #088395 35%,
-      #7ab2b2 70%,
-      #ebf4f6 100%
+      #fcf8f8 0%,
+      #fbefef 35%,
+      #f9dfdf 70%,
+      #f5afaf 100%
     );
 
   /* Absolutely no borders or outlines */
@@ -114,4 +114,106 @@
     width: 100%;
     max-width: 320px;
   }
+}
+/* ==============================
+   THEME TOGGLE BUTTON (LIGHT / DARK)
+   Glass + Minimal
+   ============================== */
+.theme-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 999;
+
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+
+  /* Glass style */
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+
+  border: none;
+  outline: none;
+
+  color: #000;
+  font-size: 20px;
+  cursor: pointer;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.theme-btn:hover {
+  transform: scale(1.12) rotate(8deg);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* ==============================
+   DARK MODE BUTTON STYLE
+   ============================== */
+body.dark .theme-btn {
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+/* ==============================
+   DARK MODE OVERRIDES
+   ============================== */
+
+body.dark {
+  color: #ffffff;
+}
+
+/* Section background */
+body.dark .role-section {
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.08),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #1a0f14 0%,
+      #241018 35%,
+      #3a1422 70%,
+      #4a1b2a 100%
+    );
+}
+
+/* Role boxes (Glass Dark) */
+body.dark .role-box {
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.75);
+}
+
+/* Hover stays colorful but darker */
+body.dark .role-box.barber:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(9, 99, 126, 0.85),
+    rgba(8, 131, 149, 0.85)
+  );
+}
+
+body.dark .role-box.customer:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(70, 120, 120, 0.85),
+    rgba(150, 190, 200, 0.85)
+  );
+}
+
+/* Theme button in dark */
+body.dark .theme-btn {
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
 }

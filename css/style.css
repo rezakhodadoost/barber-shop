@@ -1,106 +1,165 @@
+/* ===============================
+   CSS Variables (Light Mode)
+================================ */
+:root {
+  --text-color: #111111;
+  --card-bg: rgba(0, 0, 0, 0.5);
+  --btn-bg: #222;
+  --btn-text: #fff;
+}
+
+/* ===============================
+   Base Body
+================================ */
 body {
   font-family: sans-serif;
   direction: rtl;
   text-align: center;
-  color: #f8fcfd;
+  color: var(--text-color);
 
   background:
-    radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 40%),
-    linear-gradient(135deg,
-      #09637e 0%,
-      #088395 35%,
-      #7ab2b2 70%,
-      #ebf4f6 100%
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.15),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #fcf8f8 0%,
+      #fbefef 35%,
+      #f9dfdf 70%,
+      #f5afaf 100%
     );
 
   min-height: 100vh;
   margin: 0;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
+/* ===============================
+   Dark Mode
+================================ */
+body.dark {
+  --text-color: #f3f6f8;
+  --card-bg: rgba(0, 0, 0, 0.6);
+  --btn-bg: #f5f5f5;
+  --btn-text: #111;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 180, 200, 0.12),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #1a0f14 0%,
+      #241018 35%,
+      #3a1422 70%,
+      #4a1b2a 100%
+    );
+}
+
+/* ===============================
+   Layout Helpers
+================================ */
 #main-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #top-left {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
 }
 
 .login-btn {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
+/* ===============================
+   Buttons
+================================ */
 button {
-    padding: 10px 18px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    background: #2196f3;
-    color: white;
-    font-weight: bold;
-    transition: transform 0.3s ease;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #2196f3;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease;
 }
+
 button:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
+/* ===============================
+   Box / Card
+================================ */
 .box {
-    margin-top: 150px;
-    background: rgba(0,0,0,0.5);
-    padding: 30px;
-    border-radius: 12px;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+  margin-top: 150px;
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 6px;
-    border: none;
+/* ===============================
+   Inputs
+================================ */
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
 }
 
 #error {
-    color: #ff5252;
-    margin-top: 10px;
+  color: #ff5252;
+  margin-top: 10px;
 }
 
+/* ===============================
+   Profile Avatar
+================================ */
 #profile {
-    background-image:url("profile.jpg");
-    width: 50px;
-    height: 50px;
-    background: white;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+  background-image: url("profile.jpg");
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 #profile:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
+
+/* ===============================
+   Header / Logo
+================================ */
 #header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  direction: rtl; 
 }
-
 
 .logo img {
   height: 50px;
-  width: auto;
-
   filter:
     drop-shadow(0 6px 14px rgba(0,0,0,0.35))
     saturate(1.15)
     contrast(1.1);
-
-  transition: all 0.35s ease;
+  transition: 0.35s ease;
 }
 
 .logo:hover img {
@@ -110,6 +169,23 @@ input, select {
     saturate(1.25);
 }
 
+/* ===============================
+   Theme Toggle Button
+================================ */
+.theme-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-
-
+.theme-btn:hover {
+  opacity: 0.8;
+}
