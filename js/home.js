@@ -1,3 +1,3 @@
 function goLogin() {
-    window.location.href = "login.html";
+    window.location.href = "role.html";
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>انتخاب نقش</title>
+  <link rel="stylesheet" href="css/role.css">
+</head>
+<body>
+
+<section class="role-section">
+  <h2>لطفاً انتخاب کنید</h2>
+
+  <div class="role-boxes">
+    <div class="role-box barber" onclick="selectRole('barber')">
+      ✂️
+      <h3>آرایشگر هستم</h3>
+    </div>
+
+    <div class="role-box customer" onclick="selectRole('customer')">
+      👤
+      <h3>مشتری هستم</h3>
+    </div>
+  </div>
+</section>
+
+<script>
+  function selectRole(role) {
+    if (role === "barber") {
+      window.location.href = "barber.html";
+    } else {
+      window.location.href = "customer.html";
+    }
+  }
+</script>
+
+</body>
+</html>
