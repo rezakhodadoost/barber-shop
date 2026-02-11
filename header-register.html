@@ -1,0 +1,202 @@
+<!-- THIS HTML WILL BE LINKED TO THE TOP OF ALL OTHER HTMLs THAT WE MAKE -->
+
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <style>
+            @font-face {
+                font-family: "Kamran";
+                src: url("Kamran.ttf") format("truetype");
+            }
+
+            header {
+                display: flex;
+                font-family: "Kamran";
+            }
+
+            a:link,
+            a:visited,
+            a:hover,
+            a:active {
+            text-decoration: none;
+            }
+
+            .top-buttons {
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-left: 10px;
+                padding-right: 10px;
+                height: 42px;
+                border-radius: 5px !important;
+                color: #000 !important;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .space {
+                height: 42px;
+                width: 30px;
+            }
+
+            #register-header {
+                border: 2px solid blue;
+            }
+
+            .top-buttons:hover {
+                background-color: #FFF8E7;
+            }
+
+            #login-header {
+                padding-left: 25px;
+                padding-right: 25px;
+                border: 2px solid gainsboro;
+                padding-bottom: 0.5re;
+            }
+
+            #barber-near {
+                padding-left: 20px;
+                padding-right: 20px;
+                border: 2px solid orange;
+            }
+
+            #search {
+                display: flex;
+                align-items: center;
+                margin-left: auto;
+                width: 161.667px;
+                height: 37.8px;
+                padding-right: 20px;
+                flex: 1;
+                border: none;
+                outline: none;
+            }
+
+            #search-icon {
+                height: 39px;
+                width: 39px;
+                border: 2px solid #ccc;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+
+            #search-place {
+                margin-left: auto;
+                display: flex;
+                border-radius: 10px;
+                overflow: hidden;
+                border: 2px solid #ccc;
+                background-color: #fff;
+                align-items: center;
+            }
+
+            #sidebar-icon {
+                height: 40px;
+                cursor: pointer;
+            }
+            
+            #register-sidebar {
+                position: fixed;
+                top: 0;
+                right: -270px; /* hidden to the left */
+                width: 250px;
+                height: 100%;
+                padding-left: 20px;
+                background-color: #333;
+                color: white;
+                transition: right 0.3s ease; /* smooth slide */
+            }
+
+            #register-sidebar.open {
+                right: 0;
+            }
+
+            #register-sidebar ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            #register-sidebar ul li {
+                padding: 15px 0;
+                cursor: pointer;
+            }
+
+            #logo-sidebar {
+                height: 60px;
+                margin-top: 10px;
+                cursor: pointer;
+                display: flex;
+            }
+
+            #close-sidebar {
+                margin-right: 30px;
+                cursor: pointer;
+            }
+
+            #top-sidebar {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+        </style>
+    </head>
+
+    <header>
+        <h5 id="register-header" class="top-buttons" onclick="goLogin()">ثبت نام</h5>
+        <span class="space"></span>
+        <h5 id="login-header" class="top-buttons" onclick="goLogin()">ورود</h5>
+        <span class="space"></span>
+        <h5 id="barber-near" class="top-buttons" onclick="goLogin()" dir="rtl">نزدیک ترین آرایشگاه به شما!</h5>
+        <span class="space"></span>
+        <div id="search-place">
+            <input id="search" placeholder="جستجو" dir="rtl">
+            <img id="search-icon" src="images/search.png" alt="Search Icon">
+        </div>
+        <span class="space"></span>
+        <img id="sidebar-icon" src="images/3lines.png" alt="Menu">
+
+        <aside id="register-sidebar" class="sidebar">
+
+            <div id="top-sidebar">
+                <img id="logo-sidebar" src="images/logo.png" onclick="goHome()">
+                <h2 id="close-sidebar">X</h2>
+            </div>
+
+            <ul dir="rtl">
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </aside>
+    </header>
+
+    <script src="js/home.js"></script>
+
+    <script>
+    //focus when clicked on search icon
+
+        const searchInput = document.getElementById("search");
+        const searchIcon = document.getElementById("search-icon");
+
+        searchIcon.addEventListener("click", () => {
+            searchInput.focus();   
+    });
+
+
+    //sidebar toggle
+
+        const sidebarIcon = document.getElementById("sidebar-icon");
+        const registerSidebar = document.getElementById("register-sidebar");
+        const closeSidebar = document.getElementById("close-sidebar");
+
+        sidebarIcon.addEventListener("click", () => {
+            registerSidebar.classList.toggle("open"); // toggles the sidebar
+    })
+
+        closeSidebar.addEventListener("click", () => {
+            registerSidebar.classList.remove("open"); // always closes it
+    });
+    </script>
+</html>
